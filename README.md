@@ -1,5 +1,6 @@
 <h1 align="center">Hi 👋, I'm Kevin Yuki Horimi</h1>
 <h3 align="center">Salesforce Developer</h3>
+<img src="https://about.codecov.io/wp-content/uploads/2020/11/apex-logo.png" alt="Salesforce" width="40" height="40"/>
 
 - 🌱 I’m currently learning **APEX, SOQL, LWC, AURA, Visual Force, html, CSS e JS**
 
