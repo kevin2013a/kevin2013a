@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Kevin Yuki Horimi</h1>
 <h3 align="center">Salesforce Developer</h3>
-<img src="https://www.salesforce.com/content/dam/sfdc-docs/www/resources/campaign-assets/live-long-and-propser/images/logo.png" alt="Salesforce" width=70px height=100px/>
+<img src="https://www.salesforce.com/content/dam/sfdc-docs/www/resources/campaign-assets/live-long-and-propser/images/logo.png" alt="Salesforce" width=100px height=70px/>
 
 - 🌱 I’m currently learning **APEX, SOQL, LWC, AURA, Visual Force, html, CSS e JS**
 
