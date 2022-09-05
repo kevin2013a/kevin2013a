@@ -147,7 +147,7 @@ WHERE Name Like '%Corporation%' // Contém Corporation;
 // Example sorting the Query;
 SELECT Id, Name
 FROM Account
-WHERE Name Like 'Dollynho%'
+WHERE Name Like '%Corporation'
 ORDER BY Name DESC NULLS LAST
 LIMIT 10
 
