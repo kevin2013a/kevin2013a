@@ -67,7 +67,7 @@ LIST - Accepts repeated values ​​(It has index and locates by position);
 MAP - Stores more information, is in alphabetical order and does not store duplicate keys; */
 
 // Simple example of set;
-Set <String> musicStyle = new Set<String>{'Country', 'Rock'};
+Set <String> musicStyle = new Set <String>{'Country', 'Rock'};
 system.debug(musicStyle);
 
 
