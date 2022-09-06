@@ -27,7 +27,6 @@
 ## IF AND ELSE
 ```cls
 // Example of If and Else comparing numbers;
-
 Integer n1 = 10;
 Integer n2 = 9;
 Integer n3 = 8;
@@ -68,7 +67,7 @@ LIST - Accepts repeated values ​​(It has index and locates by position);
 MAP - Stores more information, is in alphabetical order and does not store duplicate keys; */
 
 // Simple example of set;
-Set<String> musicStyle = new Set<String>{'Country', 'Rock'};
+Set <String> musicStyle = new Set<String>{'Country', 'Rock'};
 system.debug(musicStyle);
 
 
@@ -93,7 +92,7 @@ System.debug(datas);
 
 
 // Simple map example with string key and decimal return;
-Map<String, Decimal>produtos2=new Map<String, Decimal>();
+Map <String, Decimal> produtos2 = new Map <String, Decimal>();
 produtos2.put('Prato', 29.90);
 produtos2.put('Copo', 9.99);
 produtos2.put('Panela', 99.90);
@@ -103,7 +102,7 @@ System.debug(produtos2.get('Prato')); // Retorna o valor do produto;
 
 
 // Simple examples of manipulating a list;
-list<string> melhoresAlbuns=new String[5];// Definindo o tamanho da lista em 5 posições
+list <string> melhoresAlbuns=new String[5];// Definindo o tamanho da lista em 5 posições
 melhoresAlbuns.add(0,'Black Ice'); // Adicionando valor a uma posição específica CRIANDO UMA NOVA POSIÇÃO NA LIST
 melhoresAlbuns.set(1, 'Acustico MTV'); // Atribui valor a uma posição já existente
 melhoresAlbuns[2] = 'Clara Nunes'; // Outra forma de atribuir valor a uma posição já existente
@@ -181,7 +180,7 @@ FROM Account
 ## APEX
 ```cls
 // Delete all records that were created between July 1st and August 2nd by the Query;
-List<Projeto__c> lstProjeto = [SELECT Id, numeroProjeto__c, CreatedDate FROM Projeto__c WHERE CreatedDate>=2022-07-01T00:00:00Z AND CreatedDate<2022-08-03T00:00:00Z];
+List <Projeto__c> lstProjeto = [SELECT Id, numeroProjeto__c, CreatedDate FROM Projeto__c WHERE CreatedDate >= 2022-07-01T00:00:00Z AND CreatedDate < 2022-08-03T00:00:00Z];
 
 for(Projeto__c Count: lstProjeto){
     DELETE Count;
@@ -189,11 +188,11 @@ for(Projeto__c Count: lstProjeto){
 
 
 // Delete all records that were created between July 1st and August 2nd with IF;
-List<Projeto__c> lstProjeto = [SELECT Id, numeroProjeto__c, CreatedDate FROM Projeto__c];
+List <Projeto__c> lstProjeto = [SELECT Id, numeroProjeto__c, CreatedDate FROM Projeto__c];
 for(Projeto__c Count: lstProjeto){
     Date DataInicio = Date.newInstance(2022, 07, 01);
     Date DataFim = Date.newInstance(2022, 08, 03);
-    if(Count.CreatedDate>= DataInicio && Count.CreatedDate<DataFim){
+    if(Count.CreatedDate >= DataInicio && Count.CreatedDate < DataFim){
         DELETE Count;
     }
 }
@@ -206,7 +205,7 @@ Despesa__c newDespesa = new Despesa__c();
 
 
 // Simple example inserting several records with loop;
-List<Lead> lstLead = new List<Lead>(); // Criando uam lista;
+List <Lead> lstLead = new List<Lead>(); // Criando uam lista;
 
 for(Integer i = 1; i < = 5; i++){ 
     Lead newLead = new Lead();
@@ -220,10 +219,10 @@ for(Integer i = 1; i < = 5; i++){
  
  
 // Example updating all records without despesas to 'Sem Descrição':
-List<Despesa__c> lstDesp = [SELECT Id, Name, TipoDespesa__c FROM Despesa__c];
+List <Despesa__c> lstDesp = [SELECT Id, Name, TipoDespesa__c FROM Despesa__c];
 
 for(Despesa__c Counter: lstDesp){
-    if(Counter.TipoDespesa__c==null){
+    if(Counter.TipoDespesa__c == null){
         Counter.TipoDespesa__c = 'Sem Descrição';
         UPDATE Counter;
     }
@@ -255,7 +254,7 @@ Public Class LeadBO {
     
     // Creates a task whenever a Lead with AnnualRevenue over 500,000.00 is created;
     Public Static Void verificarCadastro (List<Lead> lstLead){
-        List<Task> lstTask = new List<Task>();
+        List <Task> lstTask = new List<Task>();
         
         for(Lead Counter: lstLead){
             if(Counter.AnnualRevenue > 500000){
@@ -292,35 +291,35 @@ Public Class CalculadoraTest {
     @IsTest
     Public Static Decimal testarMetodoSoma(){
         Decimal resultSoma = Calculadora.Calculo(10,'+',5);
-        System.assert(resultSoma==15, 'Resultado da soma não é o esperado!');
+        System.assert(resultSoma == 15, 'Resultado da soma não é o esperado!');
         return resultSoma;
     }
 
     @IsTest
     Public Static Decimal testarMetodoSubtracao(){
         Decimal resultSubtracao = Calculadora.Calculo(10,'-',5);
-        System.assert(resultSubtracao==5, 'Resultado da subtração não é o esperado!');
+        System.assert(resultSubtracao == 5, 'Resultado da subtração não é o esperado!');
         return resultSubtracao;
     }
     
     @IsTest
     Public Static Decimal testarMetodoDivisao(){
         Decimal resultDivisao = Calculadora.Calculo(10,'/',5);
-        System.assert(resultDivisao==2, 'Resultado da divisão não é o esperado!');
+        System.assert(resultDivisao == 2, 'Resultado da divisão não é o esperado!');
         return resultDivisao;
     }
     
     @IsTest
     Public Static Decimal testarMetodoMultiplicacao(){
         Decimal resultMultiplicacao = Calculadora.Calculo(10,'*',5);
-        System.assert(resultMultiplicacao==50, 'Resultado da divisão não é o esperado!');
+        System.assert(resultMultiplicacao == 50, 'Resultado da divisão não é o esperado!');
         return resultMultiplicacao;
     }
     
     @IsTest
     Public Static Decimal testarError(){
         Decimal error = Calculadora.Calculo(10,'&',5);
-        System.assert(error==0, 'Resultado da divisão não é o esperado!');
+        System.assert(error == 0, 'Resultado da divisão não é o esperado!');
         return error;
     }
 }
@@ -337,7 +336,7 @@ Public Class CaseTest {
         newCase.Status = 'New';
         newCase.Origin = 'Web';
         INSERT newCase;
-        Case casoCriado = [SELECT Id, Type FROM Case WHERE Id=:newCase.id];
+        Case casoCriado = [SELECT Id, Type FROM Case WHERE Id =: newCase.id];
         System.assert (newCase.Type == 'Other', 'O caso não esta igual a Other');
     }
     
