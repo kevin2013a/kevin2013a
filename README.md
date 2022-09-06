@@ -205,7 +205,7 @@ Despesa__c newDespesa = new Despesa__c();
 
 
 // Simple example inserting several records with loop;
-List <Lead> lstLead = new List<Lead>(); // Criando uam lista;
+List <Lead> lstLead = new List <Lead>(); // Criando uam lista;
 
 for(Integer i = 1; i < = 5; i++){ 
     Lead newLead = new Lead();
@@ -273,7 +273,7 @@ Public Class LeadBO {
     
     
    // Assign the company size as Small when the number of employees is less than 1000;
-    Public Static Void tamanhoEmpresa(list<Lead> lstLead){ 
+    Public Static Void tamanhoEmpresa(list <Lead> lstLead){ 
         for(Lead Counter2: lstLead){
             if(Counter2.NumberOfEmployees<1000){
                 Counter2.TamanhoEmpresa__c = 'Pequena';
