@@ -250,10 +250,10 @@ Trigger LeadTrigger on Lead (before INSERT, before UPDATE, after INSERT, after U
 ## BO / HANDLER
 ```cls
 // Simple example of a BO class that houses the methods called by the Trigger;
-Public Class LeadBO {
+public class LeadBO {
     
     // Creates a task whenever a Lead with AnnualRevenue over 500,000.00 is created;
-    Public Static Void verificarCadastro (List<Lead> lstLead){
+    public static void verificarCadastro (List<Lead> lstLead){
         List <Task> lstTask = new List<Task>();
         
         for(Lead Counter: lstLead){
@@ -273,7 +273,7 @@ Public Class LeadBO {
     
     
    // Assign the company size as Small when the number of employees is less than 1000;
-    Public Static Void tamanhoEmpresa(list <Lead> lstLead){ 
+    public static void tamanhoEmpresa(list <Lead> lstLead){ 
         for(Lead Counter2: lstLead){
             if(Counter2.NumberOfEmployees<1000){
                 Counter2.TamanhoEmpresa__c = 'Pequena';
@@ -286,38 +286,38 @@ Public Class LeadBO {
 ```cls
 // Simple test class example: testing all calculator possibilities;
 @IsTest
-Public Class CalculadoraTest {
+public class calculadoraTest {
     
     @IsTest
-    Public Static Decimal testarMetodoSoma(){
+    public static decimal testarMetodoSoma(){
         Decimal resultSoma = Calculadora.Calculo(10,'+',5);
         System.assert(resultSoma == 15, 'Resultado da soma não é o esperado!');
         return resultSoma;
     }
 
     @IsTest
-    Public Static Decimal testarMetodoSubtracao(){
+    public static decimal testarMetodoSubtracao(){
         Decimal resultSubtracao = Calculadora.Calculo(10,'-',5);
         System.assert(resultSubtracao == 5, 'Resultado da subtração não é o esperado!');
         return resultSubtracao;
     }
     
     @IsTest
-    Public Static Decimal testarMetodoDivisao(){
+    public static decimal testarMetodoDivisao(){
         Decimal resultDivisao = Calculadora.Calculo(10,'/',5);
         System.assert(resultDivisao == 2, 'Resultado da divisão não é o esperado!');
         return resultDivisao;
     }
     
     @IsTest
-    Public Static Decimal testarMetodoMultiplicacao(){
+    public static decimal testarMetodoMultiplicacao(){
         Decimal resultMultiplicacao = Calculadora.Calculo(10,'*',5);
         System.assert(resultMultiplicacao == 50, 'Resultado da divisão não é o esperado!');
         return resultMultiplicacao;
     }
     
     @IsTest
-    Public Static Decimal testarError(){
+    public static decimal testarError(){
         Decimal error = Calculadora.Calculo(10,'&',5);
         System.assert(error == 0, 'Resultado da divisão não é o esperado!');
         return error;
