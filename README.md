@@ -76,7 +76,7 @@ String [] listaMercado = new String[]{'Batata', 'Cenoura', 'Tomate'};
 
 
 // Simple example manipulating dates with list;
-list<date> datas=new date[5]; 
+list <date> datas = new date[5]; 
 datas[0] = date.newInstance(2001, 1, 1); 
 datas[1] = date.newInstance(2002, 2, 3);
 datas[2] = date.newInstance(2003, 3, 3);
@@ -102,7 +102,7 @@ System.debug(produtos2.get('Prato')); // Retorna o valor do produto;
 
 
 // Simple examples of manipulating a list;
-list <string> melhoresAlbuns=new String[5];// Definindo o tamanho da lista em 5 posições
+list <string> melhoresAlbuns = new String[5];// Definindo o tamanho da lista em 5 posições
 melhoresAlbuns.add(0,'Black Ice'); // Adicionando valor a uma posição específica CRIANDO UMA NOVA POSIÇÃO NA LIST
 melhoresAlbuns.set(1, 'Acustico MTV'); // Atribui valor a uma posição já existente
 melhoresAlbuns[2] = 'Clara Nunes'; // Outra forma de atribuir valor a uma posição já existente
