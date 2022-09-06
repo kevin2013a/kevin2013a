@@ -10,7 +10,7 @@
 
 <h3 align="left">Connect with me:</h3>
 
-<p <a href="https://www.linkedin.com/in/kevin-yuki-horimi-a3973716a" target="blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Linkedin" height="30" width="40" /></a> <a href="https://trailblazer.me/id/kevinhorimi" target="blank" rel="noreferrer"> <img src="https://trailhead.salesforce.com/assets/trailhead-logo-5d3354441b4d8b97f21075b65e2aea266780d45943bbb36796ac25dc7cf4adc9.svg" height="30" width="40"/></a> 
+<p <a href="https://www.linkedin.com/in/kevin-yuki-horimi-a3973716a" target="blank" rel="noreferrer"><img src="https://image.similarpng.com/very-thumbnail/2020/07/Linkedin-logo-on-transparent-Background-PNG-.png" alt="Linkedin" height="30" width="40" /></a> <a href="https://trailblazer.me/id/kevinhorimi" target="blank" rel="noreferrer"> <img src="https://trailhead.salesforce.com/assets/trailhead-logo-5d3354441b4d8b97f21075b65e2aea266780d45943bbb36796ac25dc7cf4adc9.svg" height="30" width="40"/></a> 
 
 
 
