@@ -179,57 +179,40 @@ FROM Account
 ```
 ## APEX
 ```cls
-// Delete all records that were created between July 1st and August 2nd by the Query;
-List <Projeto__c> lstProjeto = [SELECT Id, numeroProjeto__c, CreatedDate FROM Projeto__c WHERE CreatedDate >= 2022-07-01T00:00:00Z AND CreatedDate < 2022-08-03T00:00:00Z];
-
-for(Projeto__c Count: lstProjeto){
-    DELETE Count;
-}
-
-
 // Delete all records that were created between July 1st and August 2nd with IF;
 List <Projeto__c> lstProjeto = [SELECT Id, numeroProjeto__c, CreatedDate FROM Projeto__c];
+List <Projeto__c> projetoDelete = new List <Projeto__c>();
+
 for(Projeto__c Count: lstProjeto){
     Date DataInicio = Date.newInstance(2022, 07, 01);
     Date DataFim = Date.newInstance(2022, 08, 03);
     if(Count.CreatedDate >= DataInicio && Count.CreatedDate < DataFim){
-        DELETE Count;
+        projetoDelete.add(Count);
     }
 }
-
+if(projetoDelete != NULL){
+    DELETE projetoDelete;
+}
+                                                                       
 
 // Simple example creating record with more than one RecorType via Apex;
 Despesa__c newDespesa = new Despesa__c();
-    newDespesa.RecordTypeId = '0128Z000000dDp8QAE';// Atribuindo um tipo de registro pelo Id do tipo de registro
-    if(lstLead != NULL){
-    INSERT newDespesa;
-    }
+newDespesa.RecordTypeId = '0128Z000000dDp8QAE';// Assigning a Record Type by Record Type Id;
+INSERT newDespesa;
 
-
-// Simple example inserting several records with loop;
-List <Lead> lstLead = new List <Lead>(); // Criando uam lista;
-
-for(Integer i = 1; i < = 5; i++){ 
-    Lead newLead = new Lead();
-    String numero = String.valueOf(i);
-    newLead.LastName = 'Marcos '+ numero;
-    newLead.Company = 'Marcos Company'+ numero;
-    newLead.Status = 'Open - Not Contacted';
-    lstLead.add(newLead); // Adicionando os registros na lista;
-}
-if(lstLead != NULL){ // Caso a lista não esteja vazia;
- INSERT lstLead; // Salva a lista toda de uma vez;
- }
  
- 
-// Example updating all records without despesas to 'Sem Descrição':
+// Simple example updating all records without despesas to 'Sem Descrição':
 List <Despesa__c> lstDesp = [SELECT Id, Name, TipoDespesa__c FROM Despesa__c];
+List <Despesa__c> despUpdate = new List <Despesa__c>();
 
 for(Despesa__c Counter: lstDesp){
     if(Counter.TipoDespesa__c == null){
         Counter.TipoDespesa__c = 'Sem Descrição';
-        UPDATE Counter;
+        despUpdate.add(Counter);
     }
+}
+if(despUpdate != NULL){
+    UPDATE despUpdate;
 }
 ```
 ## TRIGGER
