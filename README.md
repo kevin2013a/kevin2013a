@@ -201,7 +201,9 @@ for(Projeto__c Count: lstProjeto){
 // Simple example creating record with more than one RecorType via Apex;
 Despesa__c newDespesa = new Despesa__c();
     newDespesa.RecordTypeId = '0128Z000000dDp8QAE';// Atribuindo um tipo de registro pelo Id do tipo de registro
-    insert newDespesa;
+    if(lstLead != NULL){
+    INSERT newDespesa;
+    }
 
 
 // Simple example inserting several records with loop;
@@ -215,7 +217,9 @@ for(Integer i = 1; i < = 5; i++){
     newLead.Status = 'Open - Not Contacted';
     lstLead.add(newLead); // Adicionando os registros na lista;
 }
+if(lstLead != NULL){ // Caso a lista não esteja vazia;
  INSERT lstLead; // Salva a lista toda de uma vez;
+ }
  
  
 // Example updating all records without despesas to 'Sem Descrição':
