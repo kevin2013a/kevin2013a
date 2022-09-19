@@ -197,6 +197,7 @@ if(projetoDelete != NULL){
 
 // Simple example creating record with more than one RecorType via Apex;
 Despesa__c newDespesa = new Despesa__c();
+                                                                       
 newDespesa.RecordTypeId = '0128Z000000dDp8QAE';// Assigning a Record Type by Record Type Id;
 INSERT newDespesa;
 
