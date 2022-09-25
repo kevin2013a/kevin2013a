@@ -59,6 +59,7 @@ if(preco < 30){
 }
 
 ```
+                                     
 ## ARRAYS
 ```cls
 /* Types of ARRAYS:
@@ -108,6 +109,7 @@ melhoresAlbuns.set(1, 'Acustico MTV'); // Atribui valor a uma posição já exis
 melhoresAlbuns[2] = 'Clara Nunes'; // Outra forma de atribuir valor a uma posição já existente
 
 ```
+        
 ## METHODS /  FUNCTIONS
 ```cls
 // Example of a simple function using Static to allow invoking the function without having to instantiate the class;
@@ -135,6 +137,7 @@ Public Class Calculadora {
 // Invoking the function (Without needing to instantiate);
 Calculadora.calculo(5,'*',5);
 ```
+        
 ## SOQL
 ```cls
 // Simple Query example;
@@ -177,6 +180,7 @@ FROM Despesas__r),
 FROM Projetos__r)
 FROM Account
 ```
+        
 ## APEX
 ```cls
 // Delete all records that were created between July 1st and August 2nd with IF;
@@ -216,6 +220,7 @@ if(despUpdate != NULL){
     UPDATE despUpdate;
 }
 ```
+        
 ## TRIGGER
 ```cls
 // Simple example of Trigger structure organized by time and action;
@@ -235,6 +240,7 @@ Trigger LeadTrigger on Lead (before INSERT, before UPDATE, after INSERT, after U
     }
 }
 ```
+        
 ## BO / HANDLER
 ```cls
 // Simple example of a BO class that houses the methods called by the Trigger;
@@ -270,6 +276,7 @@ public class LeadBO {
     } 
 }
 ```
+                                                 
 ## TEST CLASS
 ```cls
 // Simple test class example: testing all calculator possibilities;
@@ -343,6 +350,7 @@ Public Class CaseTest {
     }
 }
 ```
+                                                 
 ## AURA COMPONENTS
 ```cls
 // Simple exemple of an Aura Component that calculate the BMI;
@@ -399,6 +407,7 @@ Public Class CaseTest {
     }
 })
 ```
+        
 ## LWC (LIGHTNING WEB COMPONENTS)
 ```cls
 // Simple exemple of an LWC Component that allows create a new Lead;
@@ -483,3 +492,57 @@ import { NavigationMixin } from 'lightning/navigation'; // Importing Navigation 
     }
 }
 ```
+        
+## LWC WITH APEX
+```cls
+// Simple exemple of task list component mixing LWC and Apex Class;
+// TaskControllerLWC.cls
+// First we need to create an Apex class to get the list;
+public class TaskControllerLWC {
+    
+    @AuraEnabled(cacheable=true)
+    public static List<Task> getListTask(){
+        return [Select Id, WhoId, AccountId, Account.Name, Subject, CreatedDate, Status, Priority, ActivityDate FROM Task WHERE OwnerId =: UserInfo.getUserId() AND Status != 'Completed']; // Getting just the tasks related with the user Id;
+    }
+}
+
+// listTaskLWC.html
+<template>
+	<lightning-card title="Your Tasks" icon-name="standard:task">
+		<div>
+			<lightning-datatable key-field="id" data={tasks} columns={columns} hide-checkbox-column>
+			</lightning-datatable>
+		</div>
+	</lightning-card>
+</template>
+        
+listTaskLWC.js
+import { LightningElement, wire } from 'lwc';
+import  getListTask  from '@salesforce/apex/TaskControllerLWC.getListTask'; // Importing the method from the Apex class;
+
+export default class ListTaskLWC extends LightningElement {
+    tasks;
+    error;
+ 
+     columns =[
+         {label: 'Subject', fieldName: 'Subject'},
+         {label: 'Status', fieldName: 'Status'},
+         {label: 'Priority', fieldName: 'Priority'},
+         {label: 'Activity Date', fieldName: 'ActivityDate'},
+         {label: 'Related ID', fieldName: 'WhoId'}
+     ]
+ 
+     @wire(getListTask)wiredTasks({error, data}){
+         if(data){
+             this.tasks = data;
+             this.error = undefined;
+             console.log(this.tasks);
+         } else if(error){
+             this.error = error;
+             this.tasks = undefined;
+         }
+     }
+}
+        
+```        
+
