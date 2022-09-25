@@ -41,7 +41,7 @@ if(n1 > n2 && n1 > n3){
 
 
 // Example of If and Else with concatenation and use of conditional AND;
-String product = 'Camiseta';
+String product = 'T-shirt';
 Integer quantity;
 Decimal price = 49.99;
 
@@ -64,7 +64,7 @@ if(price < 30){
 ```cls
 /* Types of ARRAYS:
 SET - Does not accept repeated value (Finds by value. Does not have index);
-LIST - Accepts repeated values ​​(It has index and locates by position);
+LIST - Accepts repeated values (It has index and locates by position);
 MAP - Stores more information, is in alphabetical order and does not store duplicate keys; */
 
 // Simple example of set;
