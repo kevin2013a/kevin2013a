@@ -32,30 +32,30 @@ Integer n2 = 9;
 Integer n3 = 8;
 
 if(n1 > n2 && n1 > n3){
-        System.debug('O primeiro número é o maior de todos!');
+        System.debug('The first number is the biggest of all!');
         } else if (n2 > n1 && n2 > n3){
-        System.debug('O segundo número é o maior de todos!');
+        System.debug('The second number is the biggest of all!');
     } else {
-        System.debug('O terceiro número é o maior de todos!');
+        System.debug('The third number is the biggest of all!');
     }
 
 
 // Example of If and Else with concatenation and use of conditional AND;
-String produto = 'Camiseta';
-Integer quantidade;
-Decimal preco = 49.99;
+String product = 'Camiseta';
+Integer quantity;
+Decimal price = 49.99;
 
-if(preco < 30){
-    quantidade = 4;
-     System.debug('Compra de '+quantidade+' '+produto+'s efetuada com sucesso!');
-}else if(preco > 30 && preco <= 50){
-    quantidade = 2;
-    System.debug('Compra de '+quantidade+' '+produto+'s efetuada com sucesso!');
-} else if (preco > 50 && preco <= 80){
-    quantidade = 1;
-    System.debug('Compra de '+quantidade+' '+produto+' efetuada com sucesso!');
+if(price < 30){
+    quantity = 4;
+     System.debug('Purchase of '+quantity+' '+product+'s done successfully!');
+}else if(price > 30 && price <= 50){
+    quantity = 2;
+    System.debug('Purchase of '+quantity+' '+product+'s done successfully!');
+} else if (price > 50 && price <= 80){
+    quantity = 1;
+    System.debug('Purchase of '+quantity+' '+product+' done successfully!');
 } else {
-    System.debug('Ir embora!');
+    System.debug('Go away!');
 }
 
 ```
@@ -73,69 +73,69 @@ system.debug(musicStyle);
 
 
 // Simple example of list;
-String [] listaMercado = new String[]{'Batata', 'Cenoura', 'Tomate'};
+String [] listMarket = new String[]{'Potato', 'Carrot', 'Tomato'};
 
 
 // Simple example manipulating dates with list;
-list <date> datas = new date[5]; 
-datas[0] = date.newInstance(2001, 1, 1); 
-datas[1] = date.newInstance(2002, 2, 3);
-datas[2] = date.newInstance(2003, 3, 3);
-datas[3] = date.newInstance(2004, 4, 4);
-datas[4] = date.newInstance(2005, 5, 5);
+list <date> dates = new date[5]; 
+dates[0] = date.newInstance(2001, 1, 1); 
+dates[1] = date.newInstance(2002, 2, 3);
+dates[2] = date.newInstance(2003, 3, 3);
+dates[3] = date.newInstance(2004, 4, 4);
+dates[4] = date.newInstance(2005, 5, 5);
 
 System.debug(datas);
 
-datas.remove(4); 
-datas.remove(3);
+dates.remove(4); 
+dates.remove(3); // Removing two last dates;
 
 System.debug(datas);
 
 
 // Simple map example with string key and decimal return;
-Map <String, Decimal> produtos2 = new Map <String, Decimal>();
-produtos2.put('Prato', 29.90);
-produtos2.put('Copo', 9.99);
-produtos2.put('Panela', 99.90);
+Map <String, Decimal> products = new Map <String, Decimal>();
+products.put('Dish', 9.90);
+products.put('Glass', 4.99);
+products.put('Pan', 39.90);
 
-System.debug(produtos2);
-System.debug(produtos2.get('Prato')); // Retorna o valor do produto;
+System.debug(products);
+System.debug(products.get('Dish')); // Retorn the product price;
 
 
 // Simple examples of manipulating a list;
-list <string> melhoresAlbuns = new String[5];// Definindo o tamanho da lista em 5 posições
-melhoresAlbuns.add(0,'Black Ice'); // Adicionando valor a uma posição específica CRIANDO UMA NOVA POSIÇÃO NA LIST
-melhoresAlbuns.set(1, 'Acustico MTV'); // Atribui valor a uma posição já existente
-melhoresAlbuns[2] = 'Clara Nunes'; // Outra forma de atribuir valor a uma posição já existente
+list <string> bestAlbuns = new String[5]; // Setting the list size to 5 positions;
+bestAlbuns.add(0,'Black Ice'); // Adding value to a specific position CREATING A NEW POSITION IN THE LIST;
+bestAlbuns.set(1, 'Acustico MTV'); // Assign value to an existing position;
+bestAlbuns[2] = 'Clara Nunes'; // Another way to assign value to an existing position;
 
 ```
         
 ## METHODS /  FUNCTIONS
 ```cls
-// Example of a simple function using Static to allow invoking the function without having to instantiate the class;
-Public Class Calculadora {
+// Example of a simple function using Static to allow calling the function without having to instantiate the class;
+Public Class Calculator {
     
-    Public Static Void Calculo (Decimal a, String operacao, Decimal b){
-        if(operacao == '+'){
-            Decimal resultado = a+b;
-            System.debug('O resultado é: '+resultado.setScale(2));
-        } else if(operacao == '-'){
-            Decimal resultado = a-b;
-            System.debug('O resultado é: '+resultado.setScale(2));
-        } else if(operacao == '/'){
-            Decimal resultado = a/b;
-            System.debug('O resultado é: '+resultado.setScale(2));
-        } else if(operacao == '*'){
-            Decimal resultado = a*b;
-            System.debug('O resultado é: '+resultado.setScale(2));
+    Public Static Void Calculation (Decimal a, String operation, Decimal b){
+        if(operation == '+'){
+            Decimal result = a+b;
+            System.debug('The result is: '+result.setScale(2));
+        } else if(operation == '-'){
+            Decimal result = a-b;
+            System.debug('The result is: '+result.setScale(2));
+        } else if(operation == '/'){
+            Decimal result = a/b;
+            System.debug('The result is: '+result.setScale(2));
+        } else if(operation == '*'){
+            Decimal result = a*b;
+            System.debug('The result is: '+result.setScale(2));
         } else{
-            System.debug('Operadores inválidos!');
+            System.debug('Invalid Operator!');
         }
     }
 }
 
-// Invoking the function (Without needing to instantiate);
-Calculadora.calculo(5,'*',5);
+// Calling the function (Without needing to instantiate);
+Calculator.Calculation(5,'*',5);
 ```
         
 ## SOQL
@@ -143,7 +143,7 @@ Calculadora.calculo(5,'*',5);
 // Simple Query example;
 SELECT Id, Name
 FROM Account
-WHERE Name Like '%Corporation%' // Contém Corporation;
+WHERE Name Like '%Corporation%' // Contains Corporation;
 
 
 // Example sorting the Query;
@@ -177,47 +177,47 @@ FROM Opportunities),
 ( SELECT Id, Name
 FROM Despesas__r),
 ( SELECT Id, Name
-FROM Projetos__r)
+FROM Projects__r)
 FROM Account
 ```
         
 ## APEX
 ```cls
 // Delete all records that were created between July 1st and August 2nd with IF;
-List <Projeto__c> lstProjeto = [SELECT Id, numeroProjeto__c, CreatedDate FROM Projeto__c];
-List <Projeto__c> projetoDelete = new List <Projeto__c>();
+List <Project__> lstProject = [SELECT Id, ProjectNumber__c, CreatedDate FROM Project__c];
+List <Project__c> projectDelete = new List <Project__c>();
 
-for(Projeto__c Count: lstProjeto){
-    Date DataInicio = Date.newInstance(2022, 07, 01);
-    Date DataFim = Date.newInstance(2022, 08, 03);
-    if(Count.CreatedDate >= DataInicio && Count.CreatedDate < DataFim){
-        projetoDelete.add(Count);
+for(Project__c Count: lstProject){
+    Date initialDate = Date.newInstance(2022, 07, 01);
+    Date endDate = Date.newInstance(2022, 08, 03);
+    if(Count.CreatedDate >= initialDate && Count.CreatedDate < endDate){
+        projectDelete.add(Count);
     }
 }
-if(projetoDelete != NULL){
-    DELETE projetoDelete;
+if(projectDelete != NULL){
+    DELETE projectDelete;
 }
                                                                        
 
 // Simple example creating record with more than one RecorType via Apex;
-Despesa__c newDespesa = new Despesa__c();
+Expense__c newExpense = new Expense__c();
                                                                        
-newDespesa.RecordTypeId = '0128Z000000dDp8QAE';// Assigning a Record Type by Record Type Id;
-INSERT newDespesa;
+newExpense.RecordTypeId = '0128Z000000dDp8QAE';// Assigning a Record Type by Record Type Id;
+INSERT newExpense;
 
  
-// Simple example updating all records without despesas to 'Sem Descrição':
-List <Despesa__c> lstDesp = [SELECT Id, Name, TipoDespesa__c FROM Despesa__c];
-List <Despesa__c> despUpdate = new List <Despesa__c>();
+// Simple example updating all records without expenses type to 'Without description':
+List <Expense__c> lstExp = [SELECT Id, Name, ExpenseType__c FROM Expense__c];
+List <Expense__c> expUpdate = new List <Despesa__c>();
 
 for(Despesa__c Counter: lstDesp){
-    if(Counter.TipoDespesa__c == null){
-        Counter.TipoDespesa__c = 'Sem Descrição';
-        despUpdate.add(Counter);
+    if(Counter.ExpenseType__c == null){
+        Counter.ExpenseType__c = 'Without description';
+        expUpdate.add(Counter);
     }
 }
-if(despUpdate != NULL){
-    UPDATE despUpdate;
+if(ExpUpdate != NULL){
+    UPDATE expUpdate;
 }
 ```
         
@@ -227,13 +227,13 @@ if(despUpdate != NULL){
 Trigger LeadTrigger on Lead (before INSERT, before UPDATE, after INSERT, after UPDATE){
     
     if(Trigger.isBefore && Trigger.isInsert){
-        LeadBO.tamanhoEmpresa(Trigger.new);
+        LeadBO.companySize(Trigger.new);
         
     }else if(Trigger.isBefore && Trigger.isUpdate){
-        LeadBO.tamanhoEmpresa(Trigger.new);
+        LeadBO.companySize(Trigger.new);
         
     }else if(Trigger.isAfter && Trigger.isInsert){
-        LeadBO.verificarCadastro(trigger.new);
+        LeadBO.checkRegistration(trigger.new);
         
     }else if(Trigger.isAfter && Trigger.isUpdate){
    
@@ -247,13 +247,13 @@ Trigger LeadTrigger on Lead (before INSERT, before UPDATE, after INSERT, after U
 public class LeadBO {
     
     // Creates a task whenever a Lead with AnnualRevenue over 500,000.00 is created;
-    public static void verificarCadastro (List<Lead> lstLead){
+    public static void checkRegistration (List<Lead> lstLead){
         List <Task> lstTask = new List<Task>();
         
         for(Lead Counter: lstLead){
             if(Counter.AnnualRevenue > 500000){
                 task newTask = new Task();
-                newTask.Subject = 'Verificar se o cadastro está completo';
+                newTask.Subject = 'Check if the registration is complete';
                 newTask.Status = 'Not Started';
                 newTask.Priority = 'Normal';
                 newTask.WhoId = Counter.Id;
@@ -267,10 +267,10 @@ public class LeadBO {
     
     
    // Assign the company size as Small when the number of employees is less than 1000;
-    public static void tamanhoEmpresa(list <Lead> lstLead){ 
-        for(Lead Counter2: lstLead){
-            if(Counter2.NumberOfEmployees<1000){
-                Counter2.TamanhoEmpresa__c = 'Pequena';
+    public static void companySize(list <Lead> lstLead){ 
+        for(Lead Counter: lstLead){
+            if(Counter.NumberOfEmployees<1000){
+                Counter.companySize__c = 'Small';
             }
         }  
     } 
@@ -281,40 +281,40 @@ public class LeadBO {
 ```cls
 // Simple test class example: testing all calculator possibilities;
 @IsTest
-public class calculadoraTest {
+public class calculatorTest {
     
     @IsTest
-    public static decimal testarMetodoSoma(){
-        Decimal resultSoma = Calculadora.Calculo(10,'+',5);
-        System.assert(resultSoma == 15, 'Resultado da soma não é o esperado!');
-        return resultSoma;
+    public static decimal testSumMethod(){
+        Decimal resultSum = Calculator.Calculation(10,'+',5);
+        System.assert(resultSum == 15, 'Sum result is not as expected!');
+        return resultSum;
     }
 
     @IsTest
-    public static decimal testarMetodoSubtracao(){
-        Decimal resultSubtracao = Calculadora.Calculo(10,'-',5);
-        System.assert(resultSubtracao == 5, 'Resultado da subtração não é o esperado!');
-        return resultSubtracao;
+    public static decimal testSubtractionMethod(){
+        Decimal resultSubtraction = Calculator.Calculation(10,'-',5);
+        System.assert(resultSubtraction == 5, 'Subtraction result is not as expected!');
+        return resultSubtraction;
     }
     
     @IsTest
-    public static decimal testarMetodoDivisao(){
-        Decimal resultDivisao = Calculadora.Calculo(10,'/',5);
-        System.assert(resultDivisao == 2, 'Resultado da divisão não é o esperado!');
-        return resultDivisao;
+    public static decimal testDivisionMethod(){
+        Decimal resultDivision = Calculator.Calculation(10,'/',5);
+        System.assert(resultDivision == 2, 'Division result is not as expected!');
+        return resultDivision;
     }
     
     @IsTest
-    public static decimal testarMetodoMultiplicacao(){
-        Decimal resultMultiplicacao = Calculadora.Calculo(10,'*',5);
-        System.assert(resultMultiplicacao == 50, 'Resultado da divisão não é o esperado!');
-        return resultMultiplicacao;
+    public static decimal testMultiplicationMethod(){
+        Decimal resultMultiplication = Calculator.Calculation(10,'*',5);
+        System.assert(resultMultiplication == 50, 'Multiplication result is not as expected!');
+        return resultMultiplication;
     }
     
     @IsTest
-    public static decimal testarError(){
-        Decimal error = Calculadora.Calculo(10,'&',5);
-        System.assert(error == 0, 'Resultado da divisão não é o esperado!');
+    public static decimal testError(){
+        Decimal error = Calculator.Calculation(10,'&',5);
+        System.assert(error == 0, 'Result is not as expected!');
         return error;
     }
 }
@@ -332,8 +332,8 @@ Public Class CaseTest {
         newCase.Status = 'New';
         newCase.Origin = 'Web';
         INSERT newCase;
-        Case casoCriado = [SELECT Id, Type FROM Case WHERE Id =: newCase.id];
-        System.assert (newCase.Type == 'Other', 'O caso não esta igual a Other');
+        Case createdCase = [SELECT Id, Type FROM Case WHERE Id =: newCase.id];
+        System.assert (newCase.Type == 'Other', 'The case type is not the same as Other');
     }
     
     // Testing the validation when updating the record;
@@ -347,7 +347,7 @@ Public Class CaseTest {
         INSERT newCase;
         newCase.Type = NULL;
         UPDATE newCase;
-        System.assert (newCase.Type == 'Other', 'O caso não esta igual a Other');
+        System.assert (newCase.Type == 'Other', 'The case type is not the same as Other');
     }
 }
 ```
