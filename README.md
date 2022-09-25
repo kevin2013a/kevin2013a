@@ -439,8 +439,8 @@ Public Class CaseTest {
                     <p> <lightning-input-field field-name="Rating"></lightning-input-field> </p>  <br/>
              
                     <p>
-                        <lightning-button label="Limpar" onclick={handleReset}></lightning-button> // The Clear button calls the handleReset method;
-                        <lightning-button label="Criar Lead" type="submit" variant="brand"></lightning-button>
+                        <lightning-button label="Clear" onclick={handleReset}></lightning-button> // The Clear button calls the handleReset method;
+                        <lightning-button label="Criate Lead" type="submit" variant="brand"></lightning-button>
                     </p>
 
                 </lightning-record-edit-form>
@@ -497,8 +497,7 @@ import { NavigationMixin } from 'lightning/navigation'; // Importing Navigation 
 ```cls
 // Simple exemple of task list component mixing LWC and Apex Class;
 // TaskControllerLWC.cls
-// First we need to create an Apex class to get the list;
-public class TaskControllerLWC {
+public class TaskControllerLWC { // First we need to create an Apex class to get the list;
     
     @AuraEnabled(cacheable=true)
     public static List<Task> getListTask(){
@@ -544,5 +543,11 @@ export default class ListTaskLWC extends LightningElement {
      }
 }
         
-```        
+```       
+```cls
+// Simple exemple of Internal purchases list component with an add item card and a purchases list card;
+	
+```  
+	
+	
 
