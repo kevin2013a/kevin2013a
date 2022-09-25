@@ -399,4 +399,89 @@ Public Class CaseTest {
     }
 })
 ```
+## LWC (LIGHTNING WEB COMPONENTS)
+```cls
+// Simple exemple of an LWC Component that allows create a new Lead;
+// insertLeadLWC.js-meta.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed> // In the meta file we expose the component;
+    <targets>
+        <target>lightning__RecordPage</target> // And make available for use on the pages;
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>
+        
+// insertLeadLWC.html
+<template>
+    <lightning-card title="Criar Lead" icon-name="action:new_lead">
 
+            <div class="slds-m-around_medium">
+                <lightning-record-edit-form object-api-name="Lead" onsuccess={handleSuccess}>
+
+                    <p> <lightning-input-field field-name="Name"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="Company"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="Phone" type="phone"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="MobilePhone" type="phone"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="Status"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="AnnualRevenue"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="Rating"></lightning-input-field> </p>  <br/>
+             
+                    <p>
+                        <lightning-button label="Limpar" onclick={handleReset}></lightning-button>
+                        <lightning-button label="Criar Lead" type="submit" variant="brand"></lightning-button>
+                    </p>
+
+                </lightning-record-edit-form>
+            </div>
+            
+    </lightning-card>  
+</template>
+        
+// insertLeadLWC.js
+import { LightningElement } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import { NavigationMixin } from 'lightning/navigation';
+
+ export default class InsertLeadLWC extends NavigationMixin (LightningElement) {
+    recordId;
+
+    handleSuccess(event){
+        
+        this.recordId = event.detail.id;
+
+        const toastEvent = new ShowToastEvent({
+            title: 'Parabéns',
+            message: 'O Lead ' + event.detail.id + ' foi  criado com sucesso!',
+            variant: 'success'
+        });
+
+        this.dispatchEvent(toastEvent);
+
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: event.detail.id,
+                objectApiName: 'Lead',
+                actionName: 'view'
+            }
+        });
+        
+    }
+
+    handleReset(){
+        const inputFields = this.template.querySelectorAll(
+            'lightning-input-field'
+        );
+
+        if(inputFields) {
+            inputFields.forEach(field => {
+                field.reset();
+            });
+        }
+       
+    }
+}
+```
