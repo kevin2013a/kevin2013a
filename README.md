@@ -343,3 +343,60 @@ Public Class CaseTest {
     }
 }
 ```
+## AURA COMPONENTS
+```cls
+// Simple exemple of an Aura Component that calculate the BMI;
+// BmiCaclculator.cmp
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="result" type="decimal"/>
+    <aura:attribute name="classification" type="string"/>
+    
+    <div class="slds-box slds-theme_default"> 
+        <h1>BMI Calculator</h1><br/>
+        <lightning:input type="decimal" aura:id="height" label="Isert your height"/>
+        <lightning:input type="decimal" aura:id="mass" label="Isert your mass"/>
+        <br/>
+        
+        <span class="result"> Result: {!v.result} </span> <br/><br/>
+        <span class="classification"> Classification: {!v.classification} </span> <br/><br/>
+        <lightning:button variant="brand" label="Calculate" title="Calculate" onclick="{! c.handleClick }" />
+        
+    </div>
+    
+</aura:component>
+
+// BmiCalculatorController.js
+({
+    handleClick : function(component, event, helper) {
+        helper.BmiCalculator(component);
+    },
+})
+
+// BmiCalculatorHelper.js
+({
+    BmiCalculator : function(component) {
+        var height = component.find("height").get("v.value");
+        var mass = component.find("mass").get("v.value");
+        
+        var heightUpdated = parseFloat(height.replace (",", "."));
+        var massUpdated = parseFloat(mass.replace (",", "."));
+        
+        var result = massUpdated / (heightUpdated*heightUpdated);
+        component.set("v.result", result.toFixed(2));
+        
+        if(result < 18.5){
+            component.set("v.classification", "Less than ideal weight")
+        }else if(result >= 18.5 && result < 25){
+            component.set("v.classification", "Normal weight")
+        }else if(result >= 25 && result < 30){
+            component.set("v.classification", "Overweight")
+        }else if(result >= 30){
+            component.set("v.classification", "Obesity")
+        }else{
+            component.set("v.classification", "ERROR - Invalid data!")
+        }
+    }
+})
+```
+
