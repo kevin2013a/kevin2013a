@@ -105,8 +105,8 @@ System.debug(products.get('Dish')); // Retorn the product price;
 // Simple examples of manipulating a list;
 list <string> bestAlbuns = new String[5]; // Setting the list size to 5 positions;
 bestAlbuns.add(0,'Black Ice'); // Adding value to a specific position CREATING A NEW POSITION IN THE LIST;
-bestAlbuns.set(1, 'Acustico MTV'); // Assign value to an existing position;
-bestAlbuns[2] = 'Clara Nunes'; // Another way to assign value to an existing position;
+bestAlbuns.set(1, 'Master of Puppets'); // Assign value to an existing position;
+bestAlbuns[2] = 'The Wall'; // Another way to assign value to an existing position;
 
 ```
         
