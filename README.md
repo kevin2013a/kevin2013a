@@ -546,9 +546,106 @@ export default class ListTaskLWC extends LightningElement {
         
 ```       
 ```cls
-// Simple exemple of Internal purchases list component with an add item card and a purchases list card;
+// Simple exemple of Internal purchases list component with an add item card and a items not purchased yet list card;
+// PurchasesControllerLWC.cls
+public with sharing class PurchasesControllerLWC {
+
+    @AuraEnabled(cacheable=true)
+        public static List<Purchases__c> getPurchasesList(){
+            return[SELECT Id, Name, Quantity__c, UnitPrice__c, PurchaseDate__c, Bought__c, TotalPrice__c, CreatedDate FROM Purchases__c WHERE Bought__c = false ORDER BY CreatedDate desc];
+        }
+}
+	
+// PurchasesList.html
+<template>
+    
+    <lightning-card title="Add an item to the list" icon-name="standard:record">
+            <div class="slds-m-around_medium">
+                <lightning-record-edit-form object-api-name="Purchases__c" onsuccess={handleSuccess}>
+
+                    <p> <lightning-input-field field-name="Name"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="PurchaseDate__c"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="Quantity__c" type="phone"></lightning-input-field> </p>
+                    <p> <lightning-input-field field-name="UnitPrice__c" type="phone"></lightning-input-field> </p>
+             
+                    <br/>
+                    <p>
+                        <lightning-button label="Clear" onclick={handleReset}></lightning-button>
+                        <lightning-button label="Add Item" type="submit" variant="brand"></lightning-button>
+                    </p>
+
+                </lightning-record-edit-form>
+            </div>
+            
+    </lightning-card>  
+
+    <lightning-card title="Internal purchases list" icon-name="standard:record">
+        <div class="slds-m-around_medium">    
+                  
+                        <lightning-datatable key-field="id" data={purchases} columns={columns} hide-checkbox-column>
+                        </lightning-datatable>
+
+        </div>
+   </lightning-card>
+
+</template>
+	
+//PurchasesList.js
+import { LightningElement, wire } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import  getPurchasesList  from '@salesforce/apex/PurchasesControllerLWC.getPurchasesList';
+
+export default class PurchasesList extends LightningElement {
+    recordId;
+    purchases;
+    error;
+ 
+     columns =[
+         {label:'Name', fieldName: 'Name'},
+         {label: 'Quantity', fieldName: 'Quantity__c'},
+         {label: 'Unit Price', fieldName: 'UnitPrice__c'},
+         {label: 'Total Price', fieldName: 'TotalPrice__c'},
+         {label: 'Purchase Date', fieldName: 'PurchaseDate__c'},
+     ];
+ 
+     @wire(getPurchasesList)wiredPurchases({error, data}){
+         if(data){
+             this.purchases = data;
+             this.error = undefined;
+             console.log(this.purchases);
+         } else if(error){
+             this.error = error;
+             this.purchases = undefined;
+         }
+     }
+
+    handleSuccess(event){
+        
+        this.recordId = event.detail.id;
+
+        const toastEvent = new ShowToastEvent({
+            title: 'Congratulations!',
+            message: 'Item added successfully!',
+            variant: 'success'
+        });
+
+        this.dispatchEvent(toastEvent);
+
+        window.location.reload();
+    }
+
+    handleReset(){
+        const inputFields = this.template.querySelectorAll(
+            'lightning-input-field'
+        );
+
+        if(inputFields) {
+            inputFields.forEach(field => {
+                field.value=null;
+            });
+        }
+    }
+}
 	
 ```  
 	
-	
-
