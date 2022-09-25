@@ -419,7 +419,7 @@ Public Class CaseTest {
     <lightning-card title="Criar Lead" icon-name="action:new_lead">
 
             <div class="slds-m-around_medium">
-                <lightning-record-edit-form object-api-name="Lead" onsuccess={handleSuccess}>
+                <lightning-record-edit-form object-api-name="Lead" onsuccess={handleSuccess}> // Calling the method on success insert new Lead;
 
                     <p> <lightning-input-field field-name="Name"></lightning-input-field> </p>
                     <p> <lightning-input-field field-name="Company"></lightning-input-field> </p>
@@ -430,7 +430,7 @@ Public Class CaseTest {
                     <p> <lightning-input-field field-name="Rating"></lightning-input-field> </p>  <br/>
              
                     <p>
-                        <lightning-button label="Limpar" onclick={handleReset}></lightning-button>
+                        <lightning-button label="Limpar" onclick={handleReset}></lightning-button> // The Clear button calls the handleReset method;
                         <lightning-button label="Criar Lead" type="submit" variant="brand"></lightning-button>
                     </p>
 
@@ -442,19 +442,17 @@ Public Class CaseTest {
         
 // insertLeadLWC.js
 import { LightningElement } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { NavigationMixin } from 'lightning/navigation';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent'; // Importing Toast library to exibe the succefull message;
+import { NavigationMixin } from 'lightning/navigation'; // Importing Navigation library to redirect the user to the new record page;
 
  export default class InsertLeadLWC extends NavigationMixin (LightningElement) {
     recordId;
 
     handleSuccess(event){
-        
-        this.recordId = event.detail.id;
 
         const toastEvent = new ShowToastEvent({
-            title: 'Parabéns',
-            message: 'O Lead ' + event.detail.id + ' foi  criado com sucesso!',
+            title: 'Congratulations',
+            message: 'The Lead ' + event.detail.id + ' was created successfully!',
             variant: 'success'
         });
 
@@ -472,11 +470,11 @@ import { NavigationMixin } from 'lightning/navigation';
     }
 
     handleReset(){
-        const inputFields = this.template.querySelectorAll(
+        const inputFields = this.template.querySelectorAll( // Getting all input fields;
             'lightning-input-field'
         );
 
-        if(inputFields) {
+        if(inputFields) { // If input fields aren't null, reset them;
             inputFields.forEach(field => {
                 field.reset();
             });
