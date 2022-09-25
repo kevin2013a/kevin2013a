@@ -319,7 +319,8 @@ public class calculadoraTest {
     }
 }
 
-
+```
+```cls
 // Simple test class example for records;
 @IsTest
 Public Class CaseTest {
