@@ -157,6 +157,7 @@ public static void cannotReturn (List <Opportunity> lstOppNew, Map <Id, Opportun
           Boolean OldStop = false;
           integer i = 0;
           integer j = 0;
+	
           Do{
               String lstCounter = lstValues[i];
               if (NewStage == lstCounter){
