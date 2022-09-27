@@ -137,6 +137,52 @@ Public Class Calculator {
 // Calling the function (Without needing to instantiate);
 Calculator.Calculation(5,'*',5);
 ```
+```cls
+// Method to prevent the Stage return to a previous stage.
+public static void cannotReturn (List <Opportunity> lstOppNew, Map <Id, Opportunity> mapOppOld){
+
+      Schema.DescribeFieldResult fieldResult = Opportunity.StageName.getDescribe();
+      List<Schema.PicklistEntry> values = fieldResult.getPicklistValues();
+      List <String> lstValues = new List <String> ();
+      for(Schema.PicklistEntry Counter: values){
+          lstValues.add(Counter.getLabel());
+      } 
+      Integer indexNew;
+      Integer indexOld;
+
+      for (Opportunity Counter: lstOppNew){
+          String NewStage = Counter.StageName;
+          String OldStage = mapOppOld.get(Counter.id).StageName;
+          Boolean NewStop = false;
+          Boolean OldStop = false;
+          integer i = 0;
+          integer j = 0;
+          Do{
+              String lstCounter = lstValues[i];
+              if (NewStage == lstCounter){
+                  NewStop = true;
+                  indexNew = i;
+              }else{
+                  i++;
+              }
+          }while(NewStop == false); 
+
+          Do{
+              String lstCounter = lstValues[j];
+              if (OldStage == lstCounter){
+                  OldStop = true;
+                  indexOld = j;
+              }else{
+                  j++; 
+              }
+          }while(OldStop == false); 
+
+          if(indexNew < indexOld){
+              Counter.StageName.addError('Stage cannot return!');
+          }
+      }
+  }
+```
         
 ## SOQL
 ```cls
