@@ -367,11 +367,11 @@ private without sharing class calculatorTest {
 ```cls
 // Simple test class example for records;
 @IsTest
-Public Class CaseTest {
+private without sharing Class CaseTest {
 
     // Testing the validation when inserting the record
     @IsTest
-    public static void ifIsCreated(){
+    private static void ifIsCreated(){
         Case newCase   = new Case(); 
         newCase.Status = 'New';
         newCase.Origin = 'Web';
@@ -382,7 +382,7 @@ Public Class CaseTest {
     
     // Testing the validation when updating the record;
     @IsTest
-    public static void ifIsUpdate(){
+    private static void ifIsUpdate(){
         
         Case newCase   = new Case(); 
         newCase.Status = 'New';
