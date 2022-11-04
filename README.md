@@ -325,38 +325,38 @@ public class LeadBO {
 ```cls
 // Simple test class example: testing all calculator possibilities;
 @IsTest
-public class calculatorTest {
+private without sharing class calculatorTest {
     
     @IsTest
-    public static decimal testSumMethod(){
+    private static decimal testSumMethod(){
         Decimal resultSum = Calculator.Calculation(10,'+',5);
         System.assert(resultSum == 15, 'Sum result is not as expected!');
         return resultSum;
     }
 
     @IsTest
-    public static decimal testSubtractionMethod(){
+    private static decimal testSubtractionMethod(){
         Decimal resultSubtraction = Calculator.Calculation(10,'-',5);
         System.assert(resultSubtraction == 5, 'Subtraction result is not as expected!');
         return resultSubtraction;
     }
     
     @IsTest
-    public static decimal testDivisionMethod(){
+    private static decimal testDivisionMethod(){
         Decimal resultDivision = Calculator.Calculation(10,'/',5);
         System.assert(resultDivision == 2, 'Division result is not as expected!');
         return resultDivision;
     }
     
     @IsTest
-    public static decimal testMultiplicationMethod(){
+    private static decimal testMultiplicationMethod(){
         Decimal resultMultiplication = Calculator.Calculation(10,'*',5);
         System.assert(resultMultiplication == 50, 'Multiplication result is not as expected!');
         return resultMultiplication;
     }
     
     @IsTest
-    public static decimal testError(){
+    private static decimal testError(){
         Decimal error = Calculator.Calculation(10,'&',5);
         System.assert(error == 0, 'Result is not as expected!');
         return error;
