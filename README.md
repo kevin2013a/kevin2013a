@@ -560,7 +560,7 @@ public class TaskControllerLWC { // First we need to create an Apex class to get
 	</lightning-card>
 </template>
         
-listTaskLWC.js
+// listTaskLWC.js
 import { LightningElement, wire } from 'lwc';
 import  getListTask  from '@salesforce/apex/TaskControllerLWC.getListTask'; // Importing the method from the Apex class;
 
@@ -664,7 +664,6 @@ export default class PurchasesList extends LightningElement {
      }
 
     handleSuccess(event){
-        
         this.recordId = event.detail.id;
 
         const toastEvent = new ShowToastEvent({
