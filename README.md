@@ -165,8 +165,6 @@ public class FlowDefinitionCleanerTest {
 
 <br/>
 <h3 align="left">Another exemple:</h3>
-
-<br/>
 <h4 align="left">DeleteRecordsUsingComposite - Delete records via Composite based on the record IDs</h4>
 
 ```cls
