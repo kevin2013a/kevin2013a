@@ -22,10 +22,8 @@
 <br/><br/>
 
 <h3 align="left">A little bit of my work:</h3>
-<br/><br/>
-
 <h4 align="left">FlowDefinitionCleaner - Delete old flow versions by API Name</h4>
-<br/><br/>
+<br/>
 
 ```cls
 /**
@@ -101,9 +99,8 @@ public class FlowDefinitionCleaner {
 }
 ```
 
-<br/><br/>
+<br/>
 <h4 align="left">FlowDefinitionCleanerTest</h4>
-<br/><br/>
 
 ```cls
 /**
@@ -166,12 +163,11 @@ public class FlowDefinitionCleanerTest {
 }
 ```
 
-<br/><br/>
+<br/>
 <h3 align="left">Another exemple:</h3>
-<br/><br/>
 
+<br/>
 <h4 align="left">DeleteRecordsUsingComposite - Delete records via Composite based on the record IDs</h4>
-<br/><br/>
 
 ```cls
 /**
@@ -249,9 +245,8 @@ https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resourc
 */
 ```
 
-<br/><br/>
+<br/>
 <h4 align="left">DeleteRecordsUsingCompositeTest</h4>
-<br/><br/>
 
 ```cls
 /**
