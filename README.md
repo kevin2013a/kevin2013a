@@ -2,7 +2,7 @@
 <h3 align="center">Salesforce Developer</h3>
 <img src="https://www.salesforce.com/content/dam/sfdc-docs/www/resources/campaign-assets/live-long-and-propser/images/logo.png" alt="Salesforce" width=100px height=70px/>
 
-- 🌱 I'm always improving in **APEX, SOQL, LWC, AURA, VisualForce, HTML, CSS e JS**
+- 🌱 I'm always improving in **APEX, SOQL, LWC, AURA, VisualForce, JS, AMPscript and Microsoft Azure**
 
 - 💬 Ask me about **APEX, SOQL, LWC, JS**
 
