@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Kevin Horimi</h1>
-<h3 align="center">Salesforce Developer</h3>
+<h3 align="center">Salesforce Software Engineer</h3>
 <img src="https://www.salesforce.com/content/dam/sfdc-docs/www/resources/campaign-assets/live-long-and-propser/images/logo.png" alt="Salesforce" width=100px height=70px/>
 
 - 🌱 I'm always improving in **APEX, SOQL, SOSL, LWC, AURA, VisualForce, JS, AMPscript**
