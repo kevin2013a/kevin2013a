@@ -39,13 +39,13 @@
   </a>
 </p>
 
+</br>
+
 ---
 
-## 🧱 A little bit of my work
+<h3 align="left">🧱 A little bit of my work:</h3>
 
-<p align="left">
   Below is a short case study of a production feature I designed and implemented on Salesforce, with focus on layered architecture, async processing and integration with external services.
-</p>
 
 ---
 
@@ -161,7 +161,7 @@ Each class has a single responsibility, making the solution easier to maintain, 
 
 ---
 
-#### Apex Classes 🧩
+#### Apex Classes 🧬
 
 <h4 align="left">Flow_ClientLimitManager</h4>
 
@@ -809,7 +809,7 @@ abstract public class Repository {
 ```
 ---
 
-#### Test Classes 🧩
+#### Test Classes 🧪
 
 <h4 align="left">Flow_ClientLimitManager_Test</h4>
 
@@ -1855,3 +1855,16 @@ private class RepositoryTest {
     }
 }
 ```
+
+#### Test Results 📊
+
+<img width="241" height="18" alt="Captura de tela 2025-11-10 142753" src="https://github.com/user-attachments/assets/7fc7b7da-8f7b-4c90-a66f-1bb7822f6874" />
+<img width="243" height="18" alt="Captura de tela 2025-11-10 142829" src="https://github.com/user-attachments/assets/44309fe1-9ea2-4570-bddf-5d5dd3db9bdc" />
+<img width="245" height="16" alt="Captura de tela 2025-11-10 142847" src="https://github.com/user-attachments/assets/276e1c9c-72c0-4593-9e17-6a9f6eb79e3a" />
+<img width="243" height="13" alt="Captura de tela 2025-11-10 142939" src="https://github.com/user-attachments/assets/6897e9e8-f661-4a64-be92-d30038beee75" />
+<img width="244" height="13" alt="Captura de tela 2025-11-10 143007" src="https://github.com/user-attachments/assets/c3619776-8751-4131-b782-f4a66dd1ca7d" />
+<img width="240" height="13" alt="Captura de tela 2025-11-10 143028" src="https://github.com/user-attachments/assets/0edce69b-ff60-4ba5-8ec6-9c46326dab50" />
+<img width="242" height="14" alt="Captura de tela 2025-11-10 143040" src="https://github.com/user-attachments/assets/633bc672-25f2-4861-b90c-8c8fa5e84b05" />
+<img width="241" height="17" alt="Captura de tela 2025-11-10 143119" src="https://github.com/user-attachments/assets/d11a0242-a222-408b-81b5-67549f173db3" />
+<img width="244" height="15" alt="Captura de tela 2025-11-10 143639" src="https://github.com/user-attachments/assets/1b76d5e1-f103-4f5f-83a6-7aee272e0fa7" />
+
