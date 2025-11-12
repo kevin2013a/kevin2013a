@@ -390,7 +390,12 @@ public with sharing class Service_ClientLimitManager {
                 e
             );
 
-            throw e;
+            // Monta e retorna a resposta
+            Map<String, Object> responseData = new Map<String, Object>();
+            responseData.put('statusCode', 400);
+            responseData.put('responseBody',  '[Service_ClientLimitManager] Erro ao bloquear limite para documento: ' + document);
+
+            return responseData;
         }
     }
 
@@ -425,8 +430,13 @@ public with sharing class Service_ClientLimitManager {
                 '[Service_ClientLimitManager] Erro ao reduzir limite para documento: ' + document,
                 e
             );
-            
-            throw e;
+
+            // Monta e retorna a resposta
+            Map<String, Object> responseData = new Map<String, Object>();
+            responseData.put('statusCode', 400);
+            responseData.put('responseBody',  '[Service_ClientLimitManager] Erro ao reduzir limite para documento: ' + document);
+
+            return responseData;
         }
     }
 }
@@ -1159,26 +1169,36 @@ private class Service_ClientLimitManager_Test {
     static void test_blockLimit_withException() {
         Test.setMock(HttpCalloutMock.class, new ErrorMock());
 
-        try {
-            Service_ClientLimitManager.blockLimit('12345678901', 12345, 'ANTECIPACAO_CEDENTE', 'Motivo de teste');
+        Test.startTest();
+        Map<String, Object> result = Service_ClientLimitManager.blockLimit(
+            '12345678901', 12345, 'ANTECIPACAO_CEDENTE', 'Motivo de teste'
+        );
+        Test.stopTest();
 
-            System.assert(false, 'Deveria lançar exceção ao simular falha.');
-        } catch (Exception e) {
-            System.assert(e.getMessage().contains('Simulated callout failure'));
-        }
+        System.assertNotEquals(null, result, 'O método deve retornar um Map mesmo em erro.');
+        System.assertEquals(400, result.get('statusCode'), 'Status code de erro deve ser 400.');
+        System.assertEquals(
+            '[Service_ClientLimitManager] Erro ao bloquear limite para documento: 12345678901',
+            (String) result.get('responseBody')
+        );
     }
 
     @IsTest
     static void test_reduceLimit_withException() {
         Test.setMock(HttpCalloutMock.class, new ErrorMock());
 
-        try {
-            Service_ClientLimitManager.reduceLimit('12345678901', 12345, 'ANTECIPACAO_CEDENTE', 100, 'Motivo de teste');
+        Test.startTest();
+        Map<String, Object> result = Service_ClientLimitManager.reduceLimit(
+            '12345678901', 12345, 'ANTECIPACAO_CEDENTE', 100, 'Motivo de teste'
+        );
+        Test.stopTest();
 
-            System.assert(false, 'Deveria lançar exceção ao simular falha.');
-        } catch (Exception e) {
-            System.assert(e.getMessage().contains('Simulated callout failure'));
-        }
+        System.assertNotEquals(null, result, 'O método deve retornar um Map mesmo em erro.');
+        System.assertEquals(400, result.get('statusCode'), 'Status code de erro deve ser 400.');
+        System.assertEquals(
+            '[Service_ClientLimitManager] Erro ao reduzir limite para documento: 12345678901',
+            (String) result.get('responseBody')
+        );
     }
 
     // ------------------------------------------------------------
@@ -1189,7 +1209,7 @@ private class Service_ClientLimitManager_Test {
             HttpResponse res = new HttpResponse();
             res.setStatusCode(200);
             res.setBody('{"ok":true}');
-
+            
             return res;
         }
     }
