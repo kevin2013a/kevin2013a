@@ -13,7 +13,7 @@ I design and deliver **production-ready Salesforce solutions** with focus on sca
 
 ---
 
-## 📌 Featured Project: Client Limit Manager
+## 📌 Project Example: Client Limit Manager
 
 A production Salesforce module demonstrating enterprise-grade architecture and best practices:
 
