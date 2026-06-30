@@ -30,7 +30,7 @@ A production Salesforce module demonstrating enterprise-grade architecture and b
 
 **Tech:** Apex, Flow, REST APIs, HTTP callouts, SOQL, Salesforce Platform
 
-📖 [View full code & test classes](https://github.com/kevin2013a)
+📖 [View full code & test classes](https://github.com/kevin2013a/client-limit-manager)
 
 ---
 
