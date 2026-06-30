@@ -1,6 +1,6 @@
 # Hi 👋, I'm Kevin Horimi
 
-**Salesforce Software Engineer** | Apex • LWC • Integrations | Platform Developer | Platform Administrator
+**Salesforce Software Engineer** | Platform Developer | Platform Administrator | Apex • LWC • Integrations
 
 ---
 
