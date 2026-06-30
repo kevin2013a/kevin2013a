@@ -66,9 +66,8 @@ Microsoft Azure SQL, Data Processing Engine, Data Manager, bulk data synchroniza
 
 ## 🔗 Connect
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kevin-yuki-horimi-a3973716a/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kevin-horimi-a3973716a/)
 [![Trailhead](https://img.shields.io/badge/Trailhead-00A1DE?style=flat&logo=salesforce&logoColor=white)](https://trailblazer.me/id/kevinhorimi)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/kevin2013a)
 
 📧 **kevin_horimi@hotmail.com**
 
